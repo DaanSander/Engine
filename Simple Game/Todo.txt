@@ -1,0 +1,11 @@
+- Een keylistener en mouselistener systeem voor de windows (klaar)
+- Vector3f,Vector2f, Matrix4f etc.
+- Images kunnen laden
+- Shaders
+- Model files kunnen laden OBJ(misschien nog andere)
+- Lighting
+- Terrain
+- Fog
+- Height maps
+- Shadow maps
+- Cube Maps for de lucht

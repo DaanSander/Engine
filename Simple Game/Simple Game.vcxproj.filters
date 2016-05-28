@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{9a16a850-38ab-4e3a-85b4-493c9baab82b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\graphics">
+      <UniqueIdentifier>{b01d8248-5f82-4f69-82c1-8ba5ab9f106a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\math">
+      <UniqueIdentifier>{e7031a2f-1f7f-4e2b-81c1-3bfe8c8237ea}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>src\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector2f.cpp">
+      <Filter>src\math</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector3f.cpp">
+      <Filter>src\math</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector4f.cpp">
+      <Filter>src\math</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix4f.cpp">
+      <Filter>src\math</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Window.h">
+      <Filter>src\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2f.h">
+      <Filter>src\math</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3f.h">
+      <Filter>src\math</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector4f.h">
+      <Filter>src\math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math.h">
+      <Filter>src\math</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix4f.h">
+      <Filter>src\math</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Todo.txt">
+      <Filter>src</Filter>
+    </Text>
+  </ItemGroup>
+</Project>
