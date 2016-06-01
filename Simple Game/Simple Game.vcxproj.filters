@@ -10,6 +10,12 @@
     <Filter Include="src\math">
       <UniqueIdentifier>{e7031a2f-1f7f-4e2b-81c1-3bfe8c8237ea}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\shader">
+      <UniqueIdentifier>{e9ca0dd5-21e6-4bec-88fd-33b101a400a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\util">
+      <UniqueIdentifier>{2b113898-8f23-4463-a063-9b001a9e2bef}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -30,6 +36,9 @@
     <ClCompile Include="Matrix4f.cpp">
       <Filter>src\math</Filter>
     </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>src\shader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Window.h">
@@ -44,11 +53,20 @@
     <ClInclude Include="Vector4f.h">
       <Filter>src\math</Filter>
     </ClInclude>
-    <ClInclude Include="Math.h">
-      <Filter>src\math</Filter>
-    </ClInclude>
     <ClInclude Include="Matrix4f.h">
       <Filter>src\math</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths.h">
+      <Filter>src\math</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths_Func.h">
+      <Filter>src\math</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>src\shader</Filter>
+    </ClInclude>
+    <ClInclude Include="FileUtils.h">
+      <Filter>src\util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

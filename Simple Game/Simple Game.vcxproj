@@ -84,7 +84,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>G:\Projects\C++\glew-1.13.0-win32\glew-1.13.0\include;G:\Projects\C++\glm-0.9.7.4;G:\Projects\C++\glfw-3.1.2\glfw-3.1.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>GLEW_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,14 +130,18 @@
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Matrix4f.cpp" />
+    <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Vector2f.cpp" />
     <ClCompile Include="Vector3f.cpp" />
     <ClCompile Include="Vector4f.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Math.h" />
+    <ClInclude Include="FileUtils.h" />
+    <ClInclude Include="Maths.h" />
+    <ClInclude Include="Maths_Func.h" />
     <ClInclude Include="Matrix4f.h" />
+    <ClInclude Include="Shader.h" />
     <ClInclude Include="Vector2f.h" />
     <ClInclude Include="Vector3f.h" />
     <ClInclude Include="Vector4f.h" />

@@ -1,19 +1,25 @@
 #pragma once
 
-#include "Math.h"
+#include "Maths_Func.h"
+#include "Vector3f.h"
 
 namespace engine {
 	namespace math {
+		
+		float toRadians(float degrees);
+
 		struct Matrix4f {
 			
 			float elements[4 * 4];
 
 			Matrix4f();
 
-			Matrix4f& identity();
+			Matrix4f(float angle);
+
+			static Matrix4f identity();
 			Matrix4f& empty();
 
-			Matrix4f multiply(const Matrix4f& other);
+			Matrix4f& multiply(const Matrix4f& other);
 
 			Matrix4f& translate(const Vector3f& position);
 
