@@ -1,6 +1,5 @@
-#include <vector>
 #include "Shader.h"
-#include "FileUtils.h"
+#include <vector>
 
 namespace engine {
 	namespace graphics {
@@ -10,10 +9,8 @@ namespace engine {
 			this->fragmentPath = fragmentPath;
 			this->vertexShader = (const GLuint *)loadShader(vertexPath, GL_VERTEX_SHADER);
 			this->fragmentShader = (const GLuint *)loadShader(fragmentPath, GL_FRAGMENT_SHADER);
+			this->programID = (const GLuint *) glCreateProgram();
 			
-			//
-
-			GLuint program = glCreateProgram();
 		}
 
 		GLuint Shader::loadShader(const std::string& shaderPath, const GLenum& type) {

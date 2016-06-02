@@ -58,6 +58,9 @@ namespace engine {
 				return false;
 			}
 
+			glfwWindowHint(GLFW_VERSION_MAJOR, 4);
+			glfwWindowHint(GLFW_VERSION_MAJOR, 5);
+
 			glfwMakeContextCurrent(m_Window);
 			glfwSetWindowSizeCallback(m_Window, window_ResizeCallback);
 			glfwSetWindowUserPointer(m_Window, this);

@@ -1,8 +1,7 @@
 #pragma once
 
 #include <GL\glew.h>
-#include <iostream>
-#include <string>
+#include "FileUtils.h"
 #include "Maths.h"
 
 namespace engine {
@@ -11,14 +10,10 @@ namespace engine {
 		class Shader {
 			const char *vertexPath, *fragmentPath;
 
-			//
-
 			const GLuint *vertexShader, *fragmentShader;
-			const GLuint programID;
+			const GLuint *programID;
 
 			Shader(const char* vertexPath, const char* fragmentPath);
-
-			virtual void bindAttributes();
 
 			void bindAttribute(const GLuint& index, const GLchar* name);
 
