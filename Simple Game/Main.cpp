@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include "Window.h"
-#include "Maths.h"
+#include "Shader.h"
 
 int main() {
 	using namespace engine;
@@ -11,6 +11,8 @@ int main() {
 	Window window("Engine", 800, 600);
 
 	Matrix4f matrix = Matrix4f::perspective(70, 800 / 600, 0.3f, 500.0f);
+
+	Shader shader("graphics/shaders/basic.vert", "graphics/shaders/basic.frag");
 
 	glClearColor(0.4f, 0.3f, 0.6f, 1.0f);
 

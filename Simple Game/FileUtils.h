@@ -1,23 +1,38 @@
 #pragma once
 
 #include <iostream>
+#include <fstream>
 
 namespace engine {
-	std::string read_file(const char* filePath) {
-		FILE* file = fopen(filePath, "rt");
-		fseek(file, 0, SEEK_END);
-		unsigned long length = ftell(file);
-		char* data = new char[length + 1];
+	
+	class FileUtils {
+	public:
+		static std::string read_file(const char* filePath) {
+			FILE* file = fopen(filePath, "rt");
 
-		memset(data, 0, length + 1);
-		fseek(file, 0, SEEK_SET);
+			if (file == NULL) {
+				std::cout << "File " << filePath << " does not exist!" << std::endl;
+#ifdef DEBUG
+				system("PAUSE");
+#endif // DEBUG
 
-		fread(data, 1, length, file);
-		fclose(file);
+				return std::string();
+			}
 
-		std::string result(data);
+			fseek(file, 0, SEEK_END);
+			unsigned long length = ftell(file);
+			char* data = new char[length + 1];
 
-		delete[] data;
-		return result;
-	}
+			memset(data, 0, length + 1);
+			fseek(file, 0, SEEK_SET);
+
+			fread(data, 1, length, file);
+			fclose(file);
+
+			std::string result(data);
+
+			delete[] data;
+			return result;
+		}
+	};
 }
