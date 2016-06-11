@@ -9,8 +9,8 @@ namespace engine {
 		class Shader {
 			const char *vertexPath, *fragmentPath;
 
-			const GLuint *vertexShader, *fragmentShader;
-			const GLuint *programID;
+			GLuint vertexShader, fragmentShader;
+			GLuint programID;
 
 		public:
 			Shader(const char* vertexPath, const char* fragmentPath);
@@ -27,11 +27,12 @@ namespace engine {
 
 			void loadMatrix4f(const int& location, const math::Matrix4f& vector);
 
-		private:
-
 			void enable();
 
 			void disable();
+
+		private:
+
 
 			GLuint loadShader(const std::string& shaderPath, const GLenum& type);
 		};

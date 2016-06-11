@@ -1,4 +1,5 @@
 #include <vector>
+#include <string>
 #include "Shader.h"
 #include "FileUtils.h"
 
@@ -8,36 +9,40 @@ namespace engine {
 		Shader::Shader(const char* vertexPath, const char* fragmentPath) {
 			this->vertexPath = vertexPath;
 			this->fragmentPath = fragmentPath;
-			this->vertexShader = (const GLuint *)loadShader(vertexPath, GL_VERTEX_SHADER);
-			this->fragmentShader = (const GLuint *)loadShader(fragmentPath, GL_FRAGMENT_SHADER);
-			this->programID = (const GLuint *)glCreateProgram();
-			glAttachShader(*programID, *vertexShader);
-			glAttachShader(*programID, *fragmentShader);
-			glLinkProgram(*programID);
-			glValidateProgram(*programID);
+			this->vertexShader = loadShader(vertexPath, GL_VERTEX_SHADER);
+			this->fragmentShader = loadShader(fragmentPath, GL_FRAGMENT_SHADER);
+			this->programID = glCreateProgram();
+			glAttachShader(programID, vertexShader);
+			glAttachShader(programID, fragmentShader);
+			glLinkProgram(programID);
+			glValidateProgram(programID);
 		}
 
 		Shader::~Shader() {
-			glDetachShader(*programID, *vertexShader);
-			glDetachShader(*programID, *fragmentShader);
+			glDetachShader(programID, vertexShader);
+			glDetachShader(programID, fragmentShader);
 
-			glDeleteShader(*vertexShader);
-			glDeleteShader(*fragmentShader);
+			glDeleteShader(vertexShader);
+			glDeleteShader(fragmentShader);
 
-			glDeleteProgram(*programID);
+			glDeleteProgram(programID);
 		}
 
 		GLuint Shader::getUniformLocation(const GLchar* name) {
-			return glGetUniformLocation(*programID, name);
+			return glGetUniformLocation(programID, name);
 		}
 
 		GLuint Shader::loadShader(const std::string& shaderPath, const GLenum& type) {
 			std::string shaderSource = FileUtils::read_file(shaderPath.c_str());
 
+			std::cout << shaderSource << std::endl;
+
 			GLuint shader = glCreateShader(type);
 
 			const GLchar* source = (const GLchar *)shaderSource.c_str();
 			glShaderSource(shader, 1, &source, 0);
+
+			glCompileShader(shader);
 
 			GLint isCompiled = 0;
 
@@ -49,15 +54,6 @@ namespace engine {
 				GLint maxLength = 0;
 
 				glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &maxLength);
-
-				if (maxLength == 0) {
-					std::cout << "Shader file " << shaderPath.c_str() << " is empty" << std::endl;
-#ifdef DEBUG
-					system("PAUSE");
-#endif // DEBUG
-
-					return 0;
-				}
 				
 				std::vector<GLchar> errorLog(maxLength);
 
@@ -68,11 +64,12 @@ namespace engine {
 				glDeleteShader(shader);
 				return 0;
 			}
+			
 			return shader;
 		}
 
 		void Shader::enable() {
-			glUseProgram(*programID);
+			glUseProgram(programID);
 		}
 
 		void Shader::disable() {
